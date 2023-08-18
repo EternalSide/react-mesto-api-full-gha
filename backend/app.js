@@ -49,9 +49,7 @@ app.get('/crash-test', () => {
 app.post('/signin', loginValidation, login);
 app.post('/signup', registerValidation, createUser);
 
-// Auth middleware
-app.use(auth);
-
+// app.use(auth);
 app.use('/users', usersRoute);
 app.use('/cards', cardsRoute);
 
