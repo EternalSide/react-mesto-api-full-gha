@@ -5,7 +5,7 @@ const app = express();
 require('dotenv').config();
 const { errors } = require('celebrate');
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -39,6 +39,12 @@ app.use(limiter);
 app.use(helmet());
 app.use(express.json());
 app.use(requestLogger); // подключаем логгер запросов
+
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 
 app.post('/signin', loginValidation, login);
 app.post('/signup', registerValidation, createUser);
