@@ -1,0 +1,26 @@
+.popup-info {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  background-color: white;
+  width: 430px;
+  z-index: 101;
+  border-radius: 10px;
+  text-align: center;
+  padding: 60px 0px;
+}
+
+.popup-info > h2 {
+  margin: 0;
+  padding: 0;
+  color: #000;
+  font-size: 24px;
+  font-weight: 900;
+  max-width: 358px;
+  margin-top: 32px;
+  width: 100%;
+}

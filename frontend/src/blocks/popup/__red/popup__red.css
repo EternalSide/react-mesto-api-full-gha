@@ -1,0 +1,17 @@
+.popup__red {
+    margin: 0;
+    margin: 34px 0 54px 0px;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 29px;
+}
+
+@media screen and (max-width:470px) {
+    .popup__red {
+        max-width: 238px;
+        width: 100%;
+        font-size: 18px;
+        line-height: 22px;
+        margin: 25px 22px 75px 0px;
+    }
+}

@@ -1,0 +1,10 @@
+.elements__info {
+    box-sizing: border-box;
+    background-color: white;
+    max-width: 282px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+   padding-top: 25px;
+    padding-bottom: 22px;
+}

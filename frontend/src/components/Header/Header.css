@@ -1,0 +1,39 @@
+.header__info {
+  display: flex;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.header__link {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 22px;
+  cursor: pointer;
+  margin-top: 6px;
+}
+.header__email {
+  margin: 0;
+  padding: 0;
+  margin-right: 26px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.header__logout-button {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  color: #a9a9a9;
+  font-size: 18px;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+.header__logout-button:hover {
+  opacity: 0.6;
+  transition: 0.2s;
+}

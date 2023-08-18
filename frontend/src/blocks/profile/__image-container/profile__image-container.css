@@ -1,0 +1,18 @@
+.profile__image-container{
+    position: relative;
+    margin-right: 30px;
+    height: 120px;
+    width: 120px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile__image-container:hover .profile__icon-container {
+    background-color: rgb(0, 0, 0, .7);
+    opacity: 1;
+  }
+@media screen and (max-width:690px) {
+    .profile__image-container {
+        margin-right: 0px;
+    }
+}

@@ -1,0 +1,8 @@
+.elements__block {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: transparent;
+    position: relative;
+}
