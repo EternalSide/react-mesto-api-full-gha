@@ -40,18 +40,18 @@ app.use(helmet());
 app.use(express.json());
 app.use(requestLogger); // подключаем логгер запросов
 
-app.get('api/crash-test', () => {
+app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
 
-app.post('api/signin', loginValidation, login);
-app.post('api/signup', registerValidation, createUser);
+app.post('/signin', loginValidation, login);
+app.post('/signup', registerValidation, createUser);
 
 // app.use(auth);
-app.use('api/users', usersRoute);
-app.use('api/cards', cardsRoute);
+app.use('/users', usersRoute);
+app.use('/cards', cardsRoute);
 
 app.use(errorLogger); // подключаем логгер ошибок
 app.use(errors());
