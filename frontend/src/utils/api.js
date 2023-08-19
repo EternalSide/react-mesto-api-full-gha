@@ -76,7 +76,7 @@ class Api {
 	}
 }
 const api = new Api({
-	baseUrl: 'http://84.201.134.189/api',
+	baseUrl: 'https://api.eternalmesto.nomoreparties.co',
 	headers: {
 		'Content-Type': 'application/json',
 	},
