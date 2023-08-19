@@ -12,6 +12,6 @@
 
 IP-адрес 84.201.134.189
 
-Frontend https://...
+Frontend https://eternalmesto.nomoreparties.co
 
-Backend https://...
+Backend https://api.eternalmesto.nomoreparties.co

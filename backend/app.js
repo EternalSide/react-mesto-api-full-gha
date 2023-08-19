@@ -34,11 +34,18 @@ const {
   registerValidation,
 } = require('./middlewares/validation');
 
+const corsOptions = {
+  origin: '*',
+  credentials: true,
+  optionSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 // Apply the rate limiting middleware to all requests
 app.use(limiter);
 
 // middleware
-// app.use(helmet());
+app.use(helmet());
 app.use(express.json());
 app.use(requestLogger); // подключаем логгер запросов
 
