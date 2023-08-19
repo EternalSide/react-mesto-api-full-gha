@@ -46,7 +46,7 @@ class Auth {
 }
 
 const auth = new Auth({
-	baseUrl: 'https://api.eternalmesto.nomoreparties.co',
+	baseUrl: 'http://localhost:3001',
 	headers: {
 		'Content-Type': 'application/json',
 	},

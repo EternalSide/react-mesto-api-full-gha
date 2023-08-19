@@ -75,10 +75,14 @@ class Api {
 		}).then(this._checkRes);
 	}
 }
+
+const token = localStorage.getItem('token');
+
 const api = new Api({
-	baseUrl: 'https://api.eternalmesto.nomoreparties.co',
+	baseUrl: 'http://localhost:3001',
 	headers: {
 		'Content-Type': 'application/json',
+		'Authorization': `Bearer ${token}`,
 	},
 });
 

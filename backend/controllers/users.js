@@ -51,11 +51,10 @@ const login = async (req, res, next) => {
 
 const getUserInfo = async (req, res, next) => {
   try {
-    const user = await User.findById(req.user._id);
+    const user = await User.findById(req.user._id).exec();
 
     return res.json(user);
   } catch (e) {
-    console.log(e);
     return next(e);
   }
 };

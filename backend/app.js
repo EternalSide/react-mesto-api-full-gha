@@ -7,7 +7,7 @@ const app = express();
 require('dotenv').config();
 const { errors } = require('celebrate');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -42,7 +42,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 // Apply the rate limiting middleware to all requests
-app.use(limiter);
+// app.use(limiter);
 
 // middleware
 app.use(helmet());
