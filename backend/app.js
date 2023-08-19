@@ -11,18 +11,18 @@ const { errors } = require('celebrate');
 const PORT = process.env.PORT || 3000;
 const helmet = require('helmet');
 
+const rateLimit = require('express-rate-limit');
+
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const errorHandler = require('./middlewares/error-handler');
 
-// вырубил для тестов
-// const rateLimit = require('express-rate-limit');
-// const limiter = rateLimit({
-//   windowMs: 15 * 60 * 1000,
-//   max: 100,
-//   standardHeaders: true,
-//   legacyHeaders: false,
-// });
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  standardHeaders: true,
+  legacyHeaders: false,
+});
 
 // Routes
 const usersRoute = require('./routes/users');
@@ -44,13 +44,11 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// Apply the rate limiting middleware to all requests
-// app.use(limiter);
-
 // middleware
 app.use(helmet());
 app.use(express.json());
 app.use(requestLogger); //  логгер запросов
+app.use(limiter);
 
 // Crash test
 app.get('/crash-test', () => {
