@@ -79,7 +79,7 @@ class Api {
 const token = localStorage.getItem('token');
 
 const api = new Api({
-	baseUrl: 'http://localhost:3001',
+	baseUrl: 'https://api.eternalmesto.nomoreparties.co',
 	headers: {
 		'Content-Type': 'application/json',
 		'Authorization': `Bearer ${token}`,
