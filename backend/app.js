@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
+const cors = require('cors');
+
 const app = express();
 require('dotenv').config();
 const { errors } = require('celebrate');
@@ -34,17 +36,11 @@ const {
 
 // Apply the rate limiting middleware to all requests
 app.use(limiter);
-
-app.use((req, res, next) => {
-  const { origin } = req.headers;
-
-  if (origin === 'https://eternalmesto.nomoreparties.co') {
-    res.header('Access-Control-Allow-Origin', origin);
-  }
-
-  next();
-});
-
+app.use(
+  cors({
+    origin: 'https://eternalmesto.nomoreparties.co',
+  }),
+);
 // middleware
 app.use(helmet());
 app.use(express.json());
