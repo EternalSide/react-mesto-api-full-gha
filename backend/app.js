@@ -42,7 +42,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 // Apply the rate limiting middleware to all requests
-app.use(limiter);
+// app.use(limiter);
 
 // middleware
 app.use(helmet());
