@@ -10,7 +10,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 84.201.134.189
+IP 84.201.134.189
 
 Frontend https://eternalmesto.nomoreparties.co
 
