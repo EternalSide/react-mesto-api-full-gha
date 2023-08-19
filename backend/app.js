@@ -35,6 +35,9 @@ const {
 } = require('./middlewares/validation');
 
 app.use(cors());
+app.options('/*', (_, res) => {
+  res.sendStatus(200);
+});
 // Apply the rate limiting middleware to all requests
 // app.use(limiter);
 
