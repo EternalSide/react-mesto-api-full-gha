@@ -12,13 +12,15 @@ module.exports = async (req, res, next) => {
   let payload;
 
   try {
-    payload = jwt.verify(token, 'TOP_SECRET');
+    const jwtSecret = process.env.JWT_SECRET || 'TOP_SECRET';
+
+    payload = jwt.verify(token, jwtSecret);
 
     if (payload) {
       req.user = payload;
-
-      return next();
     }
+
+    return next();
   } catch (err) {
     throw new UnauthorizedError('Вы не Авторизованы');
   }

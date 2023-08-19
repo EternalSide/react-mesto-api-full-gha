@@ -1,4 +1,4 @@
-class Api {
+export default class Api {
 	constructor(options) {
 		this._baseUrl = options.baseUrl;
 		this.headers = options.headers;
@@ -75,15 +75,3 @@ class Api {
 		}).then(this._checkRes);
 	}
 }
-
-const token = localStorage.getItem('token');
-
-const api = new Api({
-	baseUrl: 'https://api.eternalmesto.nomoreparties.co',
-	headers: {
-		'Content-Type': 'application/json',
-		'Authorization': `Bearer ${token}`,
-	},
-});
-
-export default api;

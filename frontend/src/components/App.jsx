@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import ImagePopup from './ImagePopup';
 import Header from './Header/Header';
 import Footer from './Footer';
 import EditProfilePopup from './EditProfilePopup.jsx';
 import Main from './Main';
-import api from '../utils/api.js';
+import Api from '../utils/api.js';
 import CurrentUserContext from '../contexts/CurrentUserContext';
 import EditAvatarPopup from './EditAvatarPopup.jsx';
 import AddPlacePopup from './AddPlacePopup .jsx';
@@ -20,9 +20,19 @@ function App() {
 	});
 	const [isLoading, setIsLoading] = useState(false);
 	const [loggedIn, setLoggedIn] = useState(false);
-	const token = localStorage.getItem('token');
 
 	const navigate = useNavigate();
+	const token = localStorage.getItem('token');
+
+	const api = useMemo(() => {
+		return new Api({
+			baseUrl: 'https://api.eternalmesto.nomoreparties.co',
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': `Bearer ${token}`,
+			},
+		});
+	}, [token]);
 
 	// Начальное инфо и проверить токен
 	useEffect(() => {
@@ -41,7 +51,7 @@ function App() {
 					navigate('/sign-in');
 				});
 		}
-	}, [token, navigate]);
+	}, [token, navigate, api]);
 
 	//  Лайк
 	const handleCardLike = (card) => {

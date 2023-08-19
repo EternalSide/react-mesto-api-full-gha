@@ -39,9 +39,13 @@ const login = async (req, res, next) => {
     const { email, password } = req.body;
     const user = await User.findUserByCredentials(email, password);
 
-    const token = jwt.sign({ _id: user._id }, 'TOP_SECRET', {
-      expiresIn: '7d',
-    });
+    const token = jwt.sign(
+      { _id: user._id },
+      process.env.JWT_SECRET || 'TOP_SECRET',
+      {
+        expiresIn: '7d',
+      },
+    );
 
     return res.json({ token });
   } catch (e) {
