@@ -47,6 +47,7 @@ class Auth {
 
 const auth = new Auth({
 	baseUrl: 'https://api.eternalmesto.nomoreparties.co',
+
 	headers: {
 		'Content-Type': 'application/json',
 	},

@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const app = express();
-app.use(cors());
+
 require('dotenv').config();
 const { errors } = require('celebrate');
 
@@ -40,14 +40,7 @@ const corsOptions = {
   credentials: true,
   optionSuccessStatus: 200,
 };
-
-app.use((req, res, next) => {
-  res.header('');
-  res.set('Access-Control-Allow-Origin-Type', '*');
-
-  return next();
-});
-
+app.use(cors(corsOptions));
 // Apply the rate limiting middleware to all requests
 // app.use(limiter);
 
