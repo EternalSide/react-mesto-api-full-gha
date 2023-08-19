@@ -35,6 +35,16 @@ const {
 // Apply the rate limiting middleware to all requests
 app.use(limiter);
 
+app.use((req, res, next) => {
+  const { origin } = req.headers;
+
+  if (origin === 'https://eternalmesto.nomoreparties.co') {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
+
+  next();
+});
+
 // middleware
 app.use(helmet());
 app.use(express.json());
