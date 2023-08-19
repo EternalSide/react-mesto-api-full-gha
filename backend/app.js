@@ -36,13 +36,9 @@ const {
 
 // Apply the rate limiting middleware to all requests
 app.use(limiter);
-app.use(
-  cors({
-    origin: 'https://eternalmesto.nomoreparties.co',
-  }),
-);
+
 // middleware
-app.use(helmet());
+// app.use(helmet());
 app.use(express.json());
 app.use(requestLogger); // подключаем логгер запросов
 
