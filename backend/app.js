@@ -46,12 +46,12 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
-app.post('signin', loginValidation, login);
-app.post('signup', registerValidation, createUser);
+app.post('/signin', loginValidation, login);
+app.post('/signup', registerValidation, createUser);
 
 app.use(auth);
-app.use('users', usersRoute);
-app.use('cards', cardsRoute);
+app.use('/users', usersRoute);
+app.use('/cards', cardsRoute);
 
 app.use(errorLogger); // подключаем логгер ошибок
 app.use(errors());
